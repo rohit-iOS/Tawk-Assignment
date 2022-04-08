@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57B28007F9100640A5D /* AppDelegate.swift */; };
+		C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57D28007F9100640A5D /* SceneDelegate.swift */; };
+		C689D58028007F9100640A5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57F28007F9100640A5D /* ViewController.swift */; };
+		C689D58328007F9100640A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C689D58128007F9100640A5D /* Main.storyboard */; };
+		C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C689D58428007F9100640A5D /* Tawk_Assignment.xcdatamodeld */; };
+		C689D58828007F9200640A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C689D58728007F9200640A5D /* Assets.xcassets */; };
+		C689D58B28007F9200640A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C689D58928007F9200640A5D /* LaunchScreen.storyboard */; };
+		C689D59628007F9200640A5D /* Tawk_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59528007F9200640A5D /* Tawk_AssignmentTests.swift */; };
+		C689D5A028007F9200640A5D /* Tawk_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */; };
+		C689D5A228007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C689D59228007F9200640A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C689D57028007F9100640A5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C689D57728007F9100640A5D;
+			remoteInfo = "Tawk Assignment";
+		};
+		C689D59C28007F9200640A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C689D57028007F9100640A5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C689D57728007F9100640A5D;
+			remoteInfo = "Tawk Assignment";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C689D57828007F9100640A5D /* Tawk Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tawk Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C689D57B28007F9100640A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C689D57D28007F9100640A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C689D57F28007F9100640A5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C689D58228007F9100640A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C689D58528007F9100640A5D /* Tawk_Assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tawk_Assignment.xcdatamodel; sourceTree = "<group>"; };
+		C689D58728007F9200640A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C689D58A28007F9200640A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C689D58C28007F9200640A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C689D59128007F9200640A5D /* Tawk AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tawk AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C689D59528007F9200640A5D /* Tawk_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentTests.swift; sourceTree = "<group>"; };
+		C689D59B28007F9200640A5D /* Tawk AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tawk AssignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITests.swift; sourceTree = "<group>"; };
+		C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C689D57528007F9100640A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D58E28007F9200640A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D59828007F9200640A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C689D56F28007F9100640A5D = {
+			isa = PBXGroup;
+			children = (
+				C689D57A28007F9100640A5D /* Tawk Assignment */,
+				C689D59428007F9200640A5D /* Tawk AssignmentTests */,
+				C689D59E28007F9200640A5D /* Tawk AssignmentUITests */,
+				C689D57928007F9100640A5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C689D57928007F9100640A5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C689D57828007F9100640A5D /* Tawk Assignment.app */,
+				C689D59128007F9200640A5D /* Tawk AssignmentTests.xctest */,
+				C689D59B28007F9200640A5D /* Tawk AssignmentUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C689D57A28007F9100640A5D /* Tawk Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				C689D57B28007F9100640A5D /* AppDelegate.swift */,
+				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
+				C689D57F28007F9100640A5D /* ViewController.swift */,
+				C689D58128007F9100640A5D /* Main.storyboard */,
+				C689D58728007F9200640A5D /* Assets.xcassets */,
+				C689D58928007F9200640A5D /* LaunchScreen.storyboard */,
+				C689D58C28007F9200640A5D /* Info.plist */,
+				C689D58428007F9100640A5D /* Tawk_Assignment.xcdatamodeld */,
+			);
+			path = "Tawk Assignment";
+			sourceTree = "<group>";
+		};
+		C689D59428007F9200640A5D /* Tawk AssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				C689D59528007F9200640A5D /* Tawk_AssignmentTests.swift */,
+			);
+			path = "Tawk AssignmentTests";
+			sourceTree = "<group>";
+		};
+		C689D59E28007F9200640A5D /* Tawk AssignmentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */,
+				C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */,
+			);
+			path = "Tawk AssignmentUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C689D57728007F9100640A5D /* Tawk Assignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C689D5A528007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk Assignment" */;
+			buildPhases = (
+				C689D57428007F9100640A5D /* Sources */,
+				C689D57528007F9100640A5D /* Frameworks */,
+				C689D57628007F9100640A5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tawk Assignment";
+			productName = "Tawk Assignment";
+			productReference = C689D57828007F9100640A5D /* Tawk Assignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C689D59028007F9200640A5D /* Tawk AssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C689D5A828007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk AssignmentTests" */;
+			buildPhases = (
+				C689D58D28007F9200640A5D /* Sources */,
+				C689D58E28007F9200640A5D /* Frameworks */,
+				C689D58F28007F9200640A5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C689D59328007F9200640A5D /* PBXTargetDependency */,
+			);
+			name = "Tawk AssignmentTests";
+			productName = "Tawk AssignmentTests";
+			productReference = C689D59128007F9200640A5D /* Tawk AssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C689D59A28007F9200640A5D /* Tawk AssignmentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C689D5AB28007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk AssignmentUITests" */;
+			buildPhases = (
+				C689D59728007F9200640A5D /* Sources */,
+				C689D59828007F9200640A5D /* Frameworks */,
+				C689D59928007F9200640A5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C689D59D28007F9200640A5D /* PBXTargetDependency */,
+			);
+			name = "Tawk AssignmentUITests";
+			productName = "Tawk AssignmentUITests";
+			productReference = C689D59B28007F9200640A5D /* Tawk AssignmentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C689D57028007F9100640A5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					C689D57728007F9100640A5D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					C689D59028007F9200640A5D = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = C689D57728007F9100640A5D;
+					};
+					C689D59A28007F9200640A5D = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = C689D57728007F9100640A5D;
+					};
+				};
+			};
+			buildConfigurationList = C689D57328007F9100640A5D /* Build configuration list for PBXProject "Tawk Assignment" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C689D56F28007F9100640A5D;
+			productRefGroup = C689D57928007F9100640A5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C689D57728007F9100640A5D /* Tawk Assignment */,
+				C689D59028007F9200640A5D /* Tawk AssignmentTests */,
+				C689D59A28007F9200640A5D /* Tawk AssignmentUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C689D57628007F9100640A5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C689D58B28007F9200640A5D /* LaunchScreen.storyboard in Resources */,
+				C689D58828007F9200640A5D /* Assets.xcassets in Resources */,
+				C689D58328007F9100640A5D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D58F28007F9200640A5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D59928007F9200640A5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C689D57428007F9100640A5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C689D58028007F9100640A5D /* ViewController.swift in Sources */,
+				C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */,
+				C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */,
+				C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D58D28007F9200640A5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C689D59628007F9200640A5D /* Tawk_AssignmentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C689D59728007F9200640A5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C689D5A228007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift in Sources */,
+				C689D5A028007F9200640A5D /* Tawk_AssignmentUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C689D59328007F9200640A5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C689D57728007F9100640A5D /* Tawk Assignment */;
+			targetProxy = C689D59228007F9200640A5D /* PBXContainerItemProxy */;
+		};
+		C689D59D28007F9200640A5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C689D57728007F9100640A5D /* Tawk Assignment */;
+			targetProxy = C689D59C28007F9200640A5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C689D58128007F9100640A5D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C689D58228007F9100640A5D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C689D58928007F9200640A5D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C689D58A28007F9200640A5D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C689D5A328007F9200640A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C689D5A428007F9200640A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C689D5A628007F9200640A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tawk Assignment/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-Assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C689D5A728007F9200640A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tawk Assignment/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-Assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C689D5A928007F9200640A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-AssignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tawk Assignment.app/Tawk Assignment";
+			};
+			name = Debug;
+		};
+		C689D5AA28007F9200640A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-AssignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tawk Assignment.app/Tawk Assignment";
+			};
+			name = Release;
+		};
+		C689D5AC28007F9200640A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-AssignmentUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tawk Assignment";
+			};
+			name = Debug;
+		};
+		C689D5AD28007F9200640A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554M33T5C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS.Tawk-AssignmentUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tawk Assignment";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C689D57328007F9100640A5D /* Build configuration list for PBXProject "Tawk Assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C689D5A328007F9200640A5D /* Debug */,
+				C689D5A428007F9200640A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C689D5A528007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk Assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C689D5A628007F9200640A5D /* Debug */,
+				C689D5A728007F9200640A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C689D5A828007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk AssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C689D5A928007F9200640A5D /* Debug */,
+				C689D5AA28007F9200640A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C689D5AB28007F9200640A5D /* Build configuration list for PBXNativeTarget "Tawk AssignmentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C689D5AC28007F9200640A5D /* Debug */,
+				C689D5AD28007F9200640A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C689D58428007F9100640A5D /* Tawk_Assignment.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C689D58528007F9100640A5D /* Tawk_Assignment.xcdatamodel */,
+			);
+			currentVersion = C689D58528007F9100640A5D /* Tawk_Assignment.xcdatamodel */;
+			path = Tawk_Assignment.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C689D57028007F9100640A5D /* Project object */;
+}
