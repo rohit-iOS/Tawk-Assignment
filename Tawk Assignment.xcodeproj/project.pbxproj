@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57B28007F9100640A5D /* AppDelegate.swift */; };
 		C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57D28007F9100640A5D /* SceneDelegate.swift */; };
-		C689D58028007F9100640A5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57F28007F9100640A5D /* ViewController.swift */; };
 		C689D58328007F9100640A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C689D58128007F9100640A5D /* Main.storyboard */; };
 		C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C689D58428007F9100640A5D /* Tawk_Assignment.xcdatamodeld */; };
 		C689D58828007F9200640A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C689D58728007F9200640A5D /* Assets.xcassets */; };
@@ -17,6 +16,7 @@
 		C689D59628007F9200640A5D /* Tawk_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59528007F9200640A5D /* Tawk_AssignmentTests.swift */; };
 		C689D5A028007F9200640A5D /* Tawk_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */; };
 		C689D5A228007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */; };
+		C689D5AF28008A5000640A5D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5AE28008A5000640A5D /* UsersListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		C689D57828007F9100640A5D /* Tawk Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tawk Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689D57B28007F9100640A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C689D57D28007F9100640A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C689D57F28007F9100640A5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C689D58228007F9100640A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C689D58528007F9100640A5D /* Tawk_Assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tawk_Assignment.xcdatamodel; sourceTree = "<group>"; };
 		C689D58728007F9200640A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		C689D59B28007F9200640A5D /* Tawk AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tawk AssignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITests.swift; sourceTree = "<group>"; };
 		C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C689D5AE28008A5000640A5D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 			children = (
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
-				C689D57F28007F9100640A5D /* ViewController.swift */,
+				C689D5AE28008A5000640A5D /* UsersListViewController.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
 				C689D58728007F9200640A5D /* Assets.xcassets */,
 				C689D58928007F9200640A5D /* LaunchScreen.storyboard */,
@@ -261,8 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C689D58028007F9100640A5D /* ViewController.swift in Sources */,
 				C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */,
+				C689D5AF28008A5000640A5D /* UsersListViewController.swift in Sources */,
 				C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */,
 				C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */,
 			);
@@ -449,6 +449,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +478,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
