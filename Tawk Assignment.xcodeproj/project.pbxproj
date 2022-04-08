@@ -16,7 +16,8 @@
 		C689D59628007F9200640A5D /* Tawk_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59528007F9200640A5D /* Tawk_AssignmentTests.swift */; };
 		C689D5A028007F9200640A5D /* Tawk_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */; };
 		C689D5A228007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */; };
-		C689D5AF28008A5000640A5D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5AE28008A5000640A5D /* UsersListViewController.swift */; };
+		C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B4280091B200640A5D /* NetworkManager.swift */; };
+		C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B82800979500640A5D /* UsersListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		C689D59B28007F9200640A5D /* Tawk AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tawk AssignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689D59F28007F9200640A5D /* Tawk_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITests.swift; sourceTree = "<group>"; };
 		C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C689D5AE28008A5000640A5D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		C689D5B4280091B200640A5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C689D5B82800979500640A5D /* UsersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			children = (
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
-				C689D5AE28008A5000640A5D /* UsersListViewController.swift */,
+				C689D5B82800979500640A5D /* UsersListViewController.swift */,
+				C689D5B4280091B200640A5D /* NetworkManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
 				C689D58728007F9200640A5D /* Assets.xcassets */,
 				C689D58928007F9200640A5D /* LaunchScreen.storyboard */,
@@ -262,7 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */,
-				C689D5AF28008A5000640A5D /* UsersListViewController.swift in Sources */,
+				C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */,
+				C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */,
 				C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */,
 				C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */,
 			);
