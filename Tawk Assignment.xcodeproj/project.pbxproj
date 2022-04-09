@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C674154728015C780096C6CE /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674154628015C780096C6CE /* Utility.swift */; };
 		C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57B28007F9100640A5D /* AppDelegate.swift */; };
 		C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57D28007F9100640A5D /* SceneDelegate.swift */; };
 		C689D58328007F9100640A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C689D58128007F9100640A5D /* Main.storyboard */; };
@@ -18,6 +19,11 @@
 		C689D5A228007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */; };
 		C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B4280091B200640A5D /* NetworkManager.swift */; };
 		C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B82800979500640A5D /* UsersListViewController.swift */; };
+		C689D5BB280098B100640A5D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BA280098B100640A5D /* AppConstants.swift */; };
+		C689D5BD280098C400640A5D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BC280098C400640A5D /* UserModel.swift */; };
+		C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BE280098CD00640A5D /* UsersListViewModel.swift */; };
+		C689D5C32800C07800640A5D /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */; };
+		C689D5C42800C07800640A5D /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C674154628015C780096C6CE /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C689D57828007F9100640A5D /* Tawk Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tawk Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689D57B28007F9100640A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C689D57D28007F9100640A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +60,11 @@
 		C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tawk_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C689D5B4280091B200640A5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C689D5B82800979500640A5D /* UsersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		C689D5BA280098B100640A5D /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		C689D5BC280098C400640A5D /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C689D5BE280098CD00640A5D /* UsersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +117,11 @@
 			children = (
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
-				C689D5B82800979500640A5D /* UsersListViewController.swift */,
-				C689D5B4280091B200640A5D /* NetworkManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
+				C689D5C02800BE7300640A5D /* Users List */,
+				C689D5B4280091B200640A5D /* NetworkManager.swift */,
+				C689D5BA280098B100640A5D /* AppConstants.swift */,
+				C674154628015C780096C6CE /* Utility.swift */,
 				C689D58728007F9200640A5D /* Assets.xcassets */,
 				C689D58928007F9200640A5D /* LaunchScreen.storyboard */,
 				C689D58C28007F9200640A5D /* Info.plist */,
@@ -131,6 +145,18 @@
 				C689D5A128007F9200640A5D /* Tawk_AssignmentUITestsLaunchTests.swift */,
 			);
 			path = "Tawk AssignmentUITests";
+			sourceTree = "<group>";
+		};
+		C689D5C02800BE7300640A5D /* Users List */ = {
+			isa = PBXGroup;
+			children = (
+				C689D5B82800979500640A5D /* UsersListViewController.swift */,
+				C689D5BE280098CD00640A5D /* UsersListViewModel.swift */,
+				C689D5BC280098C400640A5D /* UserModel.swift */,
+				C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */,
+				C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */,
+			);
+			path = "Users List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C689D58B28007F9200640A5D /* LaunchScreen.storyboard in Resources */,
+				C689D5C42800C07800640A5D /* UserCollectionViewCell.xib in Resources */,
 				C689D58828007F9200640A5D /* Assets.xcassets in Resources */,
 				C689D58328007F9100640A5D /* Main.storyboard in Resources */,
 			);
@@ -264,9 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C674154728015C780096C6CE /* Utility.swift in Sources */,
 				C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */,
+				C689D5BD280098C400640A5D /* UserModel.swift in Sources */,
+				C689D5BB280098B100640A5D /* AppConstants.swift in Sources */,
 				C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */,
 				C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */,
+				C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */,
+				C689D5C32800C07800640A5D /* UserCollectionViewCell.swift in Sources */,
 				C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */,
 				C689D58628007F9100640A5D /* Tawk_Assignment.xcdatamodeld in Sources */,
 			);

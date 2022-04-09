@@ -7,7 +7,8 @@
 
 import UIKit
 
-class NetworkManager: NSObject {
+/// Manager class for Network layer
+final class NetworkManager: NSObject {
     
     static let shared: NetworkManager = {
         let instance = NetworkManager()
