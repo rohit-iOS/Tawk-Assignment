@@ -90,7 +90,6 @@ extension UsersListViewModel {
                     try await CoreDataManager.shared.insertUserData(usersListDataResponse)
                 }
                 
-                
                 if  self?.userListDataSource != nil {
                     self?.userListDataSource! += usersListDataResponse
                 }

@@ -34,6 +34,9 @@ final class UsersListViewController: UIViewController {
         
         setUpCollectionView()
         getUsersListData()
+//        NetworkMonitor().startMonitoring { status in
+//            print(status)
+//        }
     }
     
     /// Method to setup CollectionView
@@ -90,6 +93,13 @@ final class UsersListViewController: UIViewController {
         snapshot.appendItems(self.viewModel.userListDataSource ?? [])
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsViewController = segue.destination as? UserDetailsViewController{
+            guard let selectedUser = sender as? UserEntity, let userName = selectedUser.username else { return }
+            detailsViewController.userName = userName
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegate methods
@@ -108,5 +118,10 @@ extension UsersListViewController: UICollectionViewDelegate {
         if indexPath.row == (self.viewModel.userListDataSource?.count ?? 0) - 2 && !self.isLoading {
             loadMoreData()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedUser = viewModel.userListDataSource?[indexPath.row] else { return }
+        self.performSegue(withIdentifier: Constants.Identifiers.userDetailsViewSegue, sender: selectedUser)
     }
 }

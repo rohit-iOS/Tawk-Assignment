@@ -22,6 +22,8 @@ struct Constants {
     struct Identifiers {
         static let main = "Main"
         static let userCollactionViewCell = "UserCollectionViewCell"
+        static let userDetailsViewSegue = "userDetailsViewSegue"
+
     }
     
     struct Others {
