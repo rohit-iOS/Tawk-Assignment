@@ -12,8 +12,11 @@ var imageCashe = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     
     func loadImageFrom(urlString: String) {
+        
+        ///Check image available in cashe and return it
         if let image = imageCashe.object(forKey: urlString as NSString) as? UIImage {
             self.image = image
+            return
         }
         
         guard let url = URL(string: urlString) else {
@@ -52,7 +55,7 @@ extension UIViewController {
             count: 2)
         
         let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+        let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
+        return compositionalLayout
     }
 }

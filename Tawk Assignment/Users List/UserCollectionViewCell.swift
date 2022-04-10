@@ -9,7 +9,7 @@ import UIKit
 
 /// Cell class to diplay users list
 final class UserCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var noteImageView: UIImageView!
@@ -21,10 +21,10 @@ final class UserCollectionViewCell: UICollectionViewCell {
     
     /// Cell configuration method
     /// - Parameter viewModel: viewModel
-    func configureUserCell(viewModel: User) {
+    func configureUserCell(viewModel: UserEntity) {
         usernameLabel.text = viewModel.username
         noteImageView.isHidden = viewModel.note?.isEmpty ?? true
-        profilePictureImageView.loadImageFrom(urlString: viewModel.profilePictureUrl)
+        profilePictureImageView.loadImageFrom(urlString: viewModel.profilePictureUrl ?? "")
     }
-
+    
 }

@@ -14,16 +14,18 @@ enum Section {
 struct Constants {
     
     struct API {
-        static let usersListURLString = "https://api.github.com/users"
+        static let usersListURLString = "https://api.github.com/users?since="
         static let userDetailsURLString = "https://api.github.com/users/%@"
         
     }
     
     struct Identifiers {
-
         static let main = "Main"
         static let userCollactionViewCell = "UserCollectionViewCell"
-
+    }
+    
+    struct Others {
+        static let usersCountPerPage = 30
     }
     
 }

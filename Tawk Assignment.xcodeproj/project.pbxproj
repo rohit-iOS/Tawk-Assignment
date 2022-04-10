@@ -20,10 +20,13 @@
 		C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B4280091B200640A5D /* NetworkManager.swift */; };
 		C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5B82800979500640A5D /* UsersListViewController.swift */; };
 		C689D5BB280098B100640A5D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BA280098B100640A5D /* AppConstants.swift */; };
-		C689D5BD280098C400640A5D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BC280098C400640A5D /* UserModel.swift */; };
 		C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5BE280098CD00640A5D /* UsersListViewModel.swift */; };
 		C689D5C32800C07800640A5D /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */; };
 		C689D5C42800C07800640A5D /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */; };
+		C69209192802C40B00191A09 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69209172802C40B00191A09 /* UserEntity+CoreDataClass.swift */; };
+		C692091A2802C40B00191A09 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69209182802C40B00191A09 /* UserEntity+CoreDataProperties.swift */; };
+		C6F0ABB328016EA900EBD48A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0ABB228016EA900EBD48A /* CoreDataManager.swift */; };
+		C6F0ABB52801707C00EBD48A /* UserListError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0ABB42801707C00EBD48A /* UserListError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +64,13 @@
 		C689D5B4280091B200640A5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C689D5B82800979500640A5D /* UsersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		C689D5BA280098B100640A5D /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		C689D5BC280098C400640A5D /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C689D5BE280098CD00640A5D /* UsersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		C69209172802C40B00191A09 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C69209182802C40B00191A09 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C6F0ABB228016EA900EBD48A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C6F0ABB42801707C00EBD48A /* UserListError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +121,13 @@
 		C689D57A28007F9100640A5D /* Tawk Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				C69209162802C3F600191A09 /* Core Data */,
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
+				C689D5B4280091B200640A5D /* NetworkManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
 				C689D5C02800BE7300640A5D /* Users List */,
-				C689D5B4280091B200640A5D /* NetworkManager.swift */,
-				C689D5BA280098B100640A5D /* AppConstants.swift */,
-				C674154628015C780096C6CE /* Utility.swift */,
+				C692091B2802C56800191A09 /* Helpers */,
 				C689D58728007F9200640A5D /* Assets.xcassets */,
 				C689D58928007F9200640A5D /* LaunchScreen.storyboard */,
 				C689D58C28007F9200640A5D /* Info.plist */,
@@ -152,11 +158,30 @@
 			children = (
 				C689D5B82800979500640A5D /* UsersListViewController.swift */,
 				C689D5BE280098CD00640A5D /* UsersListViewModel.swift */,
-				C689D5BC280098C400640A5D /* UserModel.swift */,
 				C689D5C12800C07800640A5D /* UserCollectionViewCell.swift */,
 				C689D5C22800C07800640A5D /* UserCollectionViewCell.xib */,
 			);
 			path = "Users List";
+			sourceTree = "<group>";
+		};
+		C69209162802C3F600191A09 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C69209172802C40B00191A09 /* UserEntity+CoreDataClass.swift */,
+				C69209182802C40B00191A09 /* UserEntity+CoreDataProperties.swift */,
+				C6F0ABB228016EA900EBD48A /* CoreDataManager.swift */,
+				C6F0ABB42801707C00EBD48A /* UserListError.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		C692091B2802C56800191A09 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C689D5BA280098B100640A5D /* AppConstants.swift */,
+				C674154628015C780096C6CE /* Utility.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,11 +317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C674154728015C780096C6CE /* Utility.swift in Sources */,
+				C692091A2802C40B00191A09 /* UserEntity+CoreDataProperties.swift in Sources */,
+				C69209192802C40B00191A09 /* UserEntity+CoreDataClass.swift in Sources */,
 				C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */,
-				C689D5BD280098C400640A5D /* UserModel.swift in Sources */,
 				C689D5BB280098B100640A5D /* AppConstants.swift in Sources */,
 				C689D5B5280091B200640A5D /* NetworkManager.swift in Sources */,
+				C6F0ABB328016EA900EBD48A /* CoreDataManager.swift in Sources */,
 				C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */,
+				C6F0ABB52801707C00EBD48A /* UserListError.swift in Sources */,
 				C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */,
 				C689D5C32800C07800640A5D /* UserCollectionViewCell.swift in Sources */,
 				C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */,

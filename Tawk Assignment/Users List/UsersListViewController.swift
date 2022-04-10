@@ -9,30 +9,40 @@ import UIKit
 
 /// View class to show users list
 final class UsersListViewController: UIViewController {
-
-    ///Private Properties
-    private var viewModel =  UsersListViewModel()
-    private lazy var dataSource = createDiffableDataSource()
-
-    ///TypeAlias for Diffable Data Source
-    typealias DiffableDataSource = UICollectionViewDiffableDataSource<Section, User>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, User>
     
     ///IBOutlets
     @IBOutlet weak var usersListCollectionView: UICollectionView!
+    @IBOutlet weak var loadMoreViewHeightConstraint: NSLayoutConstraint!
+    
+    ///TypeAlias for Diffable Data Source
+    typealias DiffableDataSource = UICollectionViewDiffableDataSource<Section, UserEntity>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, UserEntity>
+    
+    ///Properties
+    private var viewModel =  UsersListViewModel()
+    private lazy var dataSource = createDiffableDataSource()
+    private var isLoading = false {
+        willSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.loadMoreViewHeightConstraint.constant = newValue ? 50 : 0
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpCollectionView()
         getUsersListData()
     }
     
     /// Method to setup CollectionView
     private func setUpCollectionView() {
+        
+        //Register User collection view cell
         usersListCollectionView.register(UINib(nibName: Constants.Identifiers.userCollactionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.userCollactionViewCell)
+        
         usersListCollectionView.collectionViewLayout = generateCopositeLayout()
-
     }
     
     func updateUI() {
@@ -41,16 +51,17 @@ final class UsersListViewController: UIViewController {
     
     func getUsersListData() {
         //Fetch products list
-        viewModel.getUsersListData(success: {
+        viewModel.getUsersListData {
             
             DispatchQueue.main.async { [weak self] in
                 self?.applySnapshot()
+                self?.isLoading = false
             }
-        }, failure: { errorString in
+        } failure: { errorString in
             let errorMessageAlert = UIAlertController(title: "Got error", message: errorString, preferredStyle: .alert)
             errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(errorMessageAlert, animated: true, completion: nil)
-        })
+        }
     }
     
     /// Method to create diffable data source for CollectionView
@@ -78,5 +89,24 @@ final class UsersListViewController: UIViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(self.viewModel.userListDataSource ?? [])
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+}
+
+// MARK: - UICollectionViewDelegate methods
+extension UsersListViewController: UICollectionViewDelegate {
+    
+    func loadMoreData() {
+        if !self.isLoading {
+            self.isLoading = true
+            DispatchQueue.global().async { [weak self] in
+                self?.getUsersListData()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == (self.viewModel.userListDataSource?.count ?? 0) - 2 && !self.isLoading {
+            loadMoreData()
+        }
     }
 }
