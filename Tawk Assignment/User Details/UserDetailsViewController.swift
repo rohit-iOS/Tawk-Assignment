@@ -52,7 +52,7 @@ final class UserDetailsViewController: UIViewController {
     func updateUI() {
         guard let userDetails = viewModel.userDetails else { return }
         self.title = userDetails.userName
-        profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl)
+        profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl) {}
         followingCountLabel.text = "Following: \(userDetails.following)"
         followersCountLabel.text = "Followers: \(userDetails.followers)"
         repositoryCountLabel.text = "Reps: \(userDetails.following)"
@@ -85,24 +85,21 @@ final class UserDetailsViewController: UIViewController {
     }
     
     @IBAction func saveNotesButtonAction(_ sender: UIButton) {
-        
-        if notesTextView.text.isValidString() {
-            viewModel.saveNotes(notes: notesTextView.text) {
-                NotificationCenter.default.post(name: .selectedUserDataDidChange, object: nil)
-            } failure: { [weak self] errorMessage in
-                let errorMessageAlert = UIAlertController(title: "Got error", message: errorMessage, preferredStyle: .alert)
-                errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self?.present(errorMessageAlert, animated: true, completion: nil)
-            }
+        viewModel.saveNotes(notes: notesTextView.text) { [weak self] in
+            NotificationCenter.default.post(name: .selectedUserDataDidChange, object: nil)
+            self?.saveButton.isEnabled = false
+        } failure: { [weak self] errorMessage in
+            let errorMessageAlert = UIAlertController(title: "Got error", message: errorMessage, preferredStyle: .alert)
+            errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self?.present(errorMessageAlert, animated: true, completion: nil)
         }
     }
-    
 }
 
 extension UserDetailsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        saveButton.isEnabled = textView.text.isValidString()
+        saveButton.isEnabled = textView.text != viewModel.getUserNote()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

@@ -10,7 +10,14 @@ import Foundation
 import CoreData
 
 @objc(UserEntity)
-public class UserEntity: NSManagedObject, Codable {
+public class UserEntity: NSManagedObject, Codable, CellViewModelItem {
+    var type: CellViewModelItemType {
+        guard let note = self.note else {
+            return .Normal
+        }
+       return note.isEmpty ? .Normal : .Note
+    }
+   
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         do {

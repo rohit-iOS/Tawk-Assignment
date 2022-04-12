@@ -354,7 +354,7 @@
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save">
-                                    <color key="baseBackgroundColor" systemColor="systemGray3Color"/>
+                                    <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="saveNotesButtonAction:" destination="mEX-bE-53f" eventType="touchUpInside" id="Os0-5l-5Rv"/>

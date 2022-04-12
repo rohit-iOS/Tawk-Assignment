@@ -7,6 +7,15 @@
 
 import Foundation
 
+enum CellViewModelItemType {
+   case Normal
+   case Note
+}
+
+protocol CellViewModelItem {
+   var type: CellViewModelItemType { get }
+}
+
 
 /// ViewModel class for Users Listing
 final class UsersListViewModel {

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InvertedCollectionViewCell" id="gTV-IL-0wX" customClass="InvertedCollectionViewCell" customModule="Tawk_Assignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="237"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="237"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-Vs-tVW" userLabel="Background View">
+                        <rect key="frame" x="10" y="10" width="180" height="217"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hEB-KS-dZZ" userLabel="Profile Picture Image View">
+                                <rect key="frame" x="0.0" y="1" width="180" height="177.5"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hEB-KS-dZZ" secondAttribute="height" multiplier="1:1" id="epL-nh-T0p"/>
+                                </constraints>
+                                <imageReference key="image" image="photo" catalog="system"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGE-r6-4wq">
+                                <rect key="frame" x="16" y="188" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="pGE-r6-4wq" firstAttribute="leading" secondItem="Oos-Vs-tVW" secondAttribute="leading" constant="16" id="1K3-G7-6b3"/>
+                            <constraint firstItem="pGE-r6-4wq" firstAttribute="top" secondItem="hEB-KS-dZZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ee3-7p-CSm"/>
+                            <constraint firstAttribute="trailing" secondItem="hEB-KS-dZZ" secondAttribute="trailing" id="Ktm-zl-vgD"/>
+                            <constraint firstAttribute="trailing" secondItem="pGE-r6-4wq" secondAttribute="trailing" constant="16" id="TbH-Vk-QuE"/>
+                            <constraint firstItem="hEB-KS-dZZ" firstAttribute="leading" secondItem="Oos-Vs-tVW" secondAttribute="leading" id="gmd-Qh-lwi"/>
+                            <constraint firstItem="hEB-KS-dZZ" firstAttribute="top" secondItem="Oos-Vs-tVW" secondAttribute="top" id="kz7-Gv-hor"/>
+                            <constraint firstAttribute="bottom" secondItem="pGE-r6-4wq" secondAttribute="bottom" constant="8" id="zTJ-5i-jD4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Oos-Vs-tVW" secondAttribute="trailing" constant="10" id="5ip-Te-9gD"/>
+                <constraint firstItem="Oos-Vs-tVW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="6HC-Cj-qA3"/>
+                <constraint firstItem="Oos-Vs-tVW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="NnF-dy-wqt"/>
+                <constraint firstAttribute="bottom" secondItem="Oos-Vs-tVW" secondAttribute="bottom" constant="10" id="qcr-zg-A7h"/>
+            </constraints>
+            <connections>
+                <outlet property="profilePictureImageView" destination="hEB-KS-dZZ" id="mYl-D1-0tT"/>
+                <outlet property="usernameLabel" destination="pGE-r6-4wq" id="XRB-n9-vAj"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="53"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

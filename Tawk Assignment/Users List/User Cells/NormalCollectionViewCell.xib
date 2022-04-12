@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NormalCollectionViewCell" id="gTv-Nw-75Y" userLabel="NormalCollectionViewCell" customClass="NormalCollectionViewCell" customModule="Tawk_Assignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="237"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="237"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-Z1-CaY" userLabel="Background View">
+                        <rect key="frame" x="10" y="10" width="180" height="217"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vwy-bd-ZbB" userLabel="Profile Picture Image View">
+                                <rect key="frame" x="0.0" y="1" width="180" height="177.5"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vwy-bd-ZbB" secondAttribute="height" multiplier="1:1" id="wCB-vC-zZT"/>
+                                </constraints>
+                                <imageReference key="image" image="photo" catalog="system"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-C7-pwn">
+                                <rect key="frame" x="16" y="188" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lWZ-C7-pwn" secondAttribute="trailing" constant="16" id="1I1-mh-KLI"/>
+                            <constraint firstAttribute="trailing" secondItem="vwy-bd-ZbB" secondAttribute="trailing" id="3E1-zA-Bu1"/>
+                            <constraint firstAttribute="bottom" secondItem="lWZ-C7-pwn" secondAttribute="bottom" constant="8" id="HsQ-Xy-qdu"/>
+                            <constraint firstItem="vwy-bd-ZbB" firstAttribute="leading" secondItem="tT0-Z1-CaY" secondAttribute="leading" id="MYT-Qm-3IW"/>
+                            <constraint firstItem="lWZ-C7-pwn" firstAttribute="top" secondItem="vwy-bd-ZbB" secondAttribute="bottom" constant="8" symbolic="YES" id="Mt3-Wg-nvM"/>
+                            <constraint firstItem="lWZ-C7-pwn" firstAttribute="leading" secondItem="tT0-Z1-CaY" secondAttribute="leading" constant="16" id="bcp-3p-zXY"/>
+                            <constraint firstItem="vwy-bd-ZbB" firstAttribute="top" secondItem="tT0-Z1-CaY" secondAttribute="top" id="cr6-81-xXq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="PBr-53-bts"/>
+            <constraints>
+                <constraint firstItem="tT0-Z1-CaY" firstAttribute="leading" secondItem="gTv-Nw-75Y" secondAttribute="leading" constant="10" id="6TS-ME-lkj"/>
+                <constraint firstAttribute="trailing" secondItem="tT0-Z1-CaY" secondAttribute="trailing" constant="10" id="evZ-FA-6Du"/>
+                <constraint firstItem="tT0-Z1-CaY" firstAttribute="top" secondItem="gTv-Nw-75Y" secondAttribute="top" constant="10" id="sIq-d5-Qrg"/>
+                <constraint firstAttribute="bottom" secondItem="tT0-Z1-CaY" secondAttribute="bottom" constant="10" id="yxL-lQ-4eW"/>
+            </constraints>
+            <size key="customSize" width="303" height="187"/>
+            <connections>
+                <outlet property="profilePictureImageView" destination="vwy-bd-ZbB" id="6K7-N1-loQ"/>
+                <outlet property="usernameLabel" destination="lWZ-C7-pwn" id="CLr-we-FjQ"/>
+            </connections>
+            <point key="canvasLocation" x="320.28985507246381" y="140.95982142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -63,8 +63,14 @@ final class UsersListViewController: UIViewController {
     private func setUpCollectionView() {
         
         //Register User collection view cell
-        usersListCollectionView.register(UINib(nibName: Constants.Identifiers.userCollactionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.userCollactionViewCell)
+        usersListCollectionView.register(UINib(nibName: Constants.Identifiers.normalCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.normalCollectionViewCell)
         
+        usersListCollectionView.register(UINib(nibName: Constants.Identifiers.noteCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.noteCollectionViewCell)
+        
+        usersListCollectionView.register(UINib(nibName: Constants.Identifiers.invertedCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.invertedCollectionViewCell)
+
+        usersListCollectionView.register(UINib(nibName: Constants.Identifiers.invertedNoteCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.invertedNoteCollectionViewCell)
+
         usersListCollectionView.collectionViewLayout = generateCopositeLayout()
     }
     
@@ -95,14 +101,42 @@ final class UsersListViewController: UIViewController {
             cellProvider: { collectionView, indexPath, serviceItem ->
                 UICollectionViewCell? in
                 
-                let userCell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: Constants.Identifiers.userCollactionViewCell,
-                    for: indexPath) as? UserCollectionViewCell
-                
-                if let userData = self.viewModel.userListDataSource?[indexPath.row] {
-                    userCell?.configureUserCell(viewModel: userData)
-                }
-                return userCell
+                var cell = UICollectionViewCell()
+                 guard let  item = self.viewModel.userListDataSource?[indexPath.row] else {
+                     return UICollectionViewCell()
+                 }
+                    switch item.type {
+                    case .Note:
+                        if ((indexPath.row + 1) % 4) == 0 {
+                            if let userCell = collectionView.dequeueReusableCell(
+                                withReuseIdentifier: Constants.Identifiers.invertedNoteCollectionViewCell,
+                                for: indexPath) as? InvertedNoteCollectionViewCell {
+                                userCell.configureUserCell(viewModel: item)
+                                cell = userCell
+                            }
+                        } else if let userCell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: Constants.Identifiers.noteCollectionViewCell,
+                            for: indexPath) as? NoteCollectionViewCell {
+                            userCell.configureUserCell(viewModel: item)
+                            cell = userCell
+                        }
+                        
+                    case .Normal:
+                        if ((indexPath.row + 1) % 4) == 0 {
+                            if let userCell = collectionView.dequeueReusableCell(
+                                withReuseIdentifier: Constants.Identifiers.invertedCollectionViewCell,
+                                for: indexPath) as? InvertedCollectionViewCell {
+                                userCell.configureUserCell(viewModel: item)
+                                cell = userCell
+                            }
+                        } else if let userCell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: Constants.Identifiers.normalCollectionViewCell,
+                            for: indexPath) as? NormalCollectionViewCell {
+                            userCell.configureUserCell(viewModel: item)
+                            cell = userCell
+                        }
+                    }
+                return cell
             })
         return dataSource
     }

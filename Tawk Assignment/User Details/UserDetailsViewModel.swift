@@ -20,6 +20,13 @@ final class UserDetailsViewModel {
         }
     }
     
+    func getUserNote() -> String {
+        if let note = userNote {
+            return note
+        }
+        return ""
+    }
+    
     func fetchUserNote(success: @escaping (String) -> Void) {
         CoreDataManager.shared.fetchUserNotes(userName: userDetails!.userName) { [weak self] note in
             self?.userNote = note

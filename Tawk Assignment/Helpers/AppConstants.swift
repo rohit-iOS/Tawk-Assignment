@@ -22,6 +22,10 @@ struct Constants {
     struct Identifiers {
         static let main = "Main"
         static let userCollactionViewCell = "UserCollectionViewCell"
+        static let normalCollectionViewCell = "NormalCollectionViewCell"
+        static let noteCollectionViewCell = "NoteCollectionViewCell"
+        static let invertedCollectionViewCell = "InvertedCollectionViewCell"
+        static let invertedNoteCollectionViewCell = "InvertedNoteCollectionViewCell"
         static let userDetailsViewSegue = "userDetailsViewSegue"
     }
     
