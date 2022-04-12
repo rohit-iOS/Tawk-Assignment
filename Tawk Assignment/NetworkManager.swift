@@ -10,12 +10,15 @@ import UIKit
 /// Manager class for Network layer
 final class NetworkManager: NSObject {
     
+    private let operationQueue = OperationQueue()
     static let shared: NetworkManager = {
         let instance = NetworkManager()
         return instance
     }()
     
-    private override init() {}
+    private override init() {
+        operationQueue.maxConcurrentOperationCount = 1
+    }
     
     /// These are the errors this class might return
     enum ManagerErrors: Error {
@@ -47,14 +50,14 @@ final class NetworkManager: NSObject {
         }
         
         // Create the request. On the request you can define if it is a GET or POST request, add body and more.
-        var request = URLRequest(url: url)
-        request.httpMethod = httpMethod.method
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.method
         
         if let req = requetparam {
-            request = req
+            urlRequest = req
         }
         
-        let urlSession = URLSession.shared.dataTask(with: request) { data, response, error in
+        let serviceCallRequest = SequentialOpertion(session: URLSession.shared, dataTaskURLRequest: urlRequest) { data, response, error in
             
             if let error = error {
                 completionOnMain(.failure(error))
@@ -85,7 +88,6 @@ final class NetworkManager: NSObject {
             }
         }
         
-        // Start the request
-        urlSession.resume()
+        operationQueue.addOperation(serviceCallRequest)
     }
 }

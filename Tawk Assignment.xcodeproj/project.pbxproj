@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C605B59828061D9500E06DB6 /* SequentialOpertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605B59728061D9500E06DB6 /* SequentialOpertion.swift */; };
 		C635171D28058EBA00D5A35C /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635171C28058EBA00D5A35C /* ImageFileManager.swift */; };
 		C635171F2805DDE700D5A35C /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635171E2805DDE700D5A35C /* NormalCollectionViewCell.swift */; };
 		C63517212805DDF400D5A35C /* NormalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63517202805DDF400D5A35C /* NormalCollectionViewCell.xib */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C605B59728061D9500E06DB6 /* SequentialOpertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentialOpertion.swift; sourceTree = "<group>"; };
 		C635171C28058EBA00D5A35C /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		C635171E2805DDE700D5A35C /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
 		C63517202805DDF400D5A35C /* NormalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
 				C689D5B4280091B200640A5D /* NetworkManager.swift */,
+				C605B59728061D9500E06DB6 /* SequentialOpertion.swift */,
 				C635171C28058EBA00D5A35C /* ImageFileManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
 				C689D5C02800BE7300640A5D /* Users List */,
@@ -387,6 +390,7 @@
 				C6F0ABB328016EA900EBD48A /* CoreDataManager.swift in Sources */,
 				C635171D28058EBA00D5A35C /* ImageFileManager.swift in Sources */,
 				C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */,
+				C605B59828061D9500E06DB6 /* SequentialOpertion.swift in Sources */,
 				C6F0ABB52801707C00EBD48A /* UserListError.swift in Sources */,
 				C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */,
 				C692091F2803019C00191A09 /* UserDetailsViewModel.swift in Sources */,

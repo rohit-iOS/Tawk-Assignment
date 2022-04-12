@@ -8,7 +8,7 @@
 import UIKit
 
 class InvertedCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
@@ -24,7 +24,9 @@ class InvertedCollectionViewCell: UICollectionViewCell {
         profilePictureImageView.image = UIImage.init(systemName: "photo")
         if let imageUrl = viewModel.profilePictureUrl {
             profilePictureImageView.loadImageFrom(urlString: imageUrl) { [weak self] in
-                self?.profilePictureImageView.image = self?.profilePictureImageView.image?.invertedImage()
+                DispatchQueue.main.async {
+                    self?.profilePictureImageView.image = self?.profilePictureImageView.image?.invertedImage()
+                }
             }
         }
     }
