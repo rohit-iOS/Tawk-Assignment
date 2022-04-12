@@ -360,6 +360,11 @@
                                     <action selector="saveNotesButtonAction:" destination="mEX-bE-53f" eventType="touchUpInside" id="Os0-5l-5Rv"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XuS-De-Tsb">
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" systemColor="systemGrayColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hhG-hq-8BS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -369,8 +374,10 @@
                             <constraint firstItem="NLz-Bq-yCy" firstAttribute="leading" secondItem="hhG-hq-8BS" secondAttribute="leading" constant="10" id="GCK-4L-5Qs"/>
                             <constraint firstItem="hhG-hq-8BS" firstAttribute="trailing" secondItem="NLz-Bq-yCy" secondAttribute="trailing" constant="10" id="HpR-7e-gSD"/>
                             <constraint firstItem="TeO-h1-fJ4" firstAttribute="centerX" secondItem="li5-cK-gRh" secondAttribute="centerX" id="JsG-xA-vKE"/>
+                            <constraint firstItem="XuS-De-Tsb" firstAttribute="centerX" secondItem="li5-cK-gRh" secondAttribute="centerX" id="K0f-qc-2EH"/>
                             <constraint firstItem="U7o-Y6-u7N" firstAttribute="centerX" secondItem="li5-cK-gRh" secondAttribute="centerX" id="Mjf-2X-Nnb"/>
                             <constraint firstItem="NLz-Bq-yCy" firstAttribute="top" secondItem="LgS-bJ-kDp" secondAttribute="bottom" constant="10" id="Qea-h3-0FB"/>
+                            <constraint firstItem="XuS-De-Tsb" firstAttribute="centerY" secondItem="li5-cK-gRh" secondAttribute="centerY" id="Ra1-pJ-sPf"/>
                             <constraint firstItem="p9L-bn-MVC" firstAttribute="top" secondItem="NLz-Bq-yCy" secondAttribute="bottom" constant="10" id="TPs-YG-ddF"/>
                             <constraint firstItem="LgS-bJ-kDp" firstAttribute="top" secondItem="U7o-Y6-u7N" secondAttribute="bottom" constant="10" id="UE0-V6-iB8"/>
                             <constraint firstItem="LgS-bJ-kDp" firstAttribute="leading" secondItem="hhG-hq-8BS" secondAttribute="leading" constant="10" id="WOi-yS-2DK"/>
@@ -386,6 +393,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DUr-QY-oK3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="XuS-De-Tsb" id="OmR-x3-n8f"/>
                         <outlet property="followersCountLabel" destination="Qqa-v8-dCk" id="PfO-TP-V7V"/>
                         <outlet property="followingCountLabel" destination="qnr-UR-BW6" id="Bmb-kf-RUZ"/>
                         <outlet property="gistsCountLabel" destination="GaV-fk-GtE" id="mRE-0Q-BCd"/>
@@ -408,6 +416,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VbZ-R1-qDJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemGray2Color"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xi9-1f-iUd"/>

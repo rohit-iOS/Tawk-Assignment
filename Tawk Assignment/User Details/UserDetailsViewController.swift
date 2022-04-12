@@ -9,12 +9,14 @@ import UIKit
 
 final class UserDetailsViewController: UIViewController {
     
+    ///Properties
     var userName: String = ""
     private var viewModel = UserDetailsViewModel()
     private var keyboardHeight = CGFloat(0)
     private var scrollHeight = CGFloat(0)
     private var tapGestureReconizer = UITapGestureRecognizer()
     
+    ///IBOutlets
     @IBOutlet weak var profilePictureImageView: BadgeImageView!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
@@ -24,63 +26,81 @@ final class UserDetailsViewController: UIViewController {
     @IBOutlet weak var userDetailsVerticalStackViewBackgroudView: UIView!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchUserDetails()
-        
+
         tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(UserDetailsViewController.tap(_:)))
         view.addGestureRecognizer(tapGestureReconizer)
         NotificationCenter.default.addObserver(self, selector: #selector(UserDetailsViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
-    @objc func tap(_ sender: UITapGestureRecognizer) {
+    @objc private func tap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    func fetchUserDetails() {
+    /// Display intial user details
+    private func updateUI() {
+        updateBackButtonAppearance()
+        guard let userDetails = viewModel.userDetails else { return }
+        
+        func setUpData(){
+            self.title = userDetails.userName
+            profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl) {}
+            followingCountLabel.text = "Following: \(userDetails.following)"
+            followersCountLabel.text = "Followers: \(userDetails.followers)"
+            repositoryCountLabel.text = "Reps: \(userDetails.following)"
+            gistsCountLabel.text = "Gists: \(userDetails.following)"
+            
+            if let name = userDetails.name, name.isValidString() {
+                addUserInfoLabel(userInfo:"Name: \(name)")
+            }
+            
+            if let company = userDetails.company, company.isValidString() {
+                addUserInfoLabel(userInfo: "Company: \(company)")
+            }
+            
+            if let blog = userDetails.blog, blog.isValidString() {
+                addUserInfoLabel(userInfo: "Blog: \(blog)")
+            }
+            
+            ///Adding users information programatically to stackView
+            func addUserInfoLabel(userInfo: String) {
+                let userInfoLabel = UILabel()
+                userInfoLabel.font = followingCountLabel.font
+                userInfoLabel.text = userInfo
+                userInfoLabel.numberOfLines = 0
+                userDetailsVerticalStackViewBackgroudView.isHidden = false
+                userDetailsVerticalStackView.addArrangedSubview(userInfoLabel)
+            }
+            notesTextView.text = viewModel.getUserNote()
+        }
+        UIView.animate(withDuration: 1.6, delay: 0, options: UIView.AnimationOptions.allowUserInteraction) {
+            setUpData()
+        } completion: { _ in }
+    }
+    
+    /// Customized appearance for navigation back button
+    private func updateBackButtonAppearance() {
+        let customeBackImage = UIImage(systemName: "arrow.backward")
+        self.navigationController?.navigationBar.backIndicatorImage = customeBackImage
+        self.navigationController?.navigationBar.backItem?.title = ""
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = customeBackImage
+    }
+    
+    /// Fetch user details data to display
+    private func fetchUserDetails() {
         viewModel.getUserDetailsFor(userName: userName) { [weak self] in
             self?.updateUI()
+            self?.activityIndicator.stopAnimating()
         } failure: { [weak self] errorString in
             let errorMessageAlert = UIAlertController(title: "Got error", message: errorString, preferredStyle: .alert)
             errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self?.present(errorMessageAlert, animated: true, completion: nil)
-        }
-    }
-    
-    func updateUI() {
-        guard let userDetails = viewModel.userDetails else { return }
-        self.title = userDetails.userName
-        profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl) {}
-        followingCountLabel.text = "Following: \(userDetails.following)"
-        followersCountLabel.text = "Followers: \(userDetails.followers)"
-        repositoryCountLabel.text = "Reps: \(userDetails.following)"
-        gistsCountLabel.text = "Gists: \(userDetails.following)"
-        
-        if let name = userDetails.name, !name.isValidString() {
-            addUserInfoLabel(userInfo:"Name: \(name)")
-        }
-        
-        if let company = userDetails.company, !company.isValidString() {
-            addUserInfoLabel(userInfo: "Company: \(company)")
-        }
-        
-        if let blog = userDetails.blog, !blog.isValidString() {
-            addUserInfoLabel(userInfo: "Blog: \(blog)")
-        }
-        
-        func addUserInfoLabel(userInfo: String) {
-            let userInfoLabel = UILabel()
-            userInfoLabel.font = followingCountLabel.font
-            userInfoLabel.text = userInfo
-            userInfoLabel.numberOfLines = 0
-            userDetailsVerticalStackViewBackgroudView.isHidden = false
-            userDetailsVerticalStackView.addArrangedSubview(userInfoLabel)
-        }
-        
-        viewModel.fetchUserNote { [weak self] note in
-            self?.notesTextView.text = note
+            self?.activityIndicator.stopAnimating()
         }
     }
     

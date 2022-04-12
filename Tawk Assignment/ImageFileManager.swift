@@ -11,6 +11,7 @@ import UIKit.UIImage
 /// Manager class for Network layer
 final class ImageFileManager: NSObject {
     
+    ///Properties
     private let fileManager = FileManager.default
     private let folderName = "/ImageStore"
     
@@ -24,18 +25,20 @@ final class ImageFileManager: NSObject {
         
         self.createDirectory()
     }
-
+    
+    /// Method to get Document derectory path
+    /// - Returns: document directory path
     private func getDirectoryPath() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
     
+    /// Create own derectory to store all images in file system
     private func createDirectory(){
         var paths = getDirectoryPath()
         paths = paths + folderName
         if !fileManager.fileExists(atPath: paths) {
-            
             do {
                 try fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
             } catch {
@@ -51,6 +54,10 @@ final class ImageFileManager: NSObject {
         return imagePath + folderName + "/\(String(describing: urlString.components(separatedBy: "/").last!)).jpeg"
     }
     
+    /// Store image on disk
+    /// - Parameters:
+    ///   - imageName: imageName
+    ///   - image: image
     func saveImageDocumentDirectory(imageName: String, image: UIImage){
         let imagePath = fileNameWithPathFor(urlString: imageName)
         let imageData = image.jpegData(compressionQuality: 1.0)
@@ -64,6 +71,9 @@ final class ImageFileManager: NSObject {
         }
     }
     
+    /// Read image from disk
+    /// - Parameter imageName: imageName
+    /// - Returns: requested image
     func getImage(imageName: String) -> UIImage?{
         let imagePath = fileNameWithPathFor(urlString: imageName)
 

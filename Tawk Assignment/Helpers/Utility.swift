@@ -12,7 +12,7 @@ var imageCashe = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     
     func loadImageFrom(urlString: String, completion: @escaping () -> Void) {
-        
+                
         ///Check image available in cashe and return it
         if let image = imageCashe.object(forKey: urlString as NSString) as? UIImage {
             self.image = image
@@ -30,43 +30,30 @@ extension UIImageView {
         guard let url = URL(string: urlString) else {
             return
         }
-        
+
+        ///Showing loading indicator
+        let activityLoader = UIActivityIndicatorView(style: .large)
+        activityLoader.startAnimating()
+        activityLoader.hidesWhenStopped = true
+        activityLoader.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(activityLoader)
+        activityLoader.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        activityLoader.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     imageCashe.setObject(image, forKey: urlString as NSString)
                     DispatchQueue.main.async {
                         self?.image = image
+                        activityLoader.stopAnimating()
                     }
                     completion()
                     ImageFileManager.shared.saveImageDocumentDirectory(imageName: urlString, image: image)
                 }
             }
         }
-    }
-}
-
-
-extension UIViewController {
-    
-    func generateCopositeLayout() -> UICollectionViewLayout {
-        
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(((self.view.bounds.width - 40)/2) * 1.50))
-        let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(2/3))
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitem: fullPhotoItem,
-            count: 2)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
-        return compositionalLayout
     }
 }
 

@@ -34,29 +34,12 @@ final class UsersListViewController: UIViewController {
         
         setUpCollectionView()
         getUsersListData()
-//        NetworkMonitor().startMonitoring { status in
-//            print(status)
-//        }
 
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(selectedUserDataDidChange(_:)),
             name: .selectedUserDataDidChange,
             object: nil)
-    }
-    
-    @objc
-    private func selectedUserDataDidChange(_ notification: Notification) {
-        
-        var snapshot = NSDiffableDataSourceSnapshot<Section, UserEntity>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(self.viewModel.userListDataSource ?? [])
-        if #available(iOS 15.0, *) {
-            dataSource.applySnapshotUsingReloadData(snapshot)
-        } else {
-            // Fallback on earlier versions
-            dataSource.apply(snapshot, animatingDifferences: false)
-        }
     }
     
     /// Method to setup CollectionView
@@ -78,6 +61,7 @@ final class UsersListViewController: UIViewController {
         usersListCollectionView.reloadData()
     }
     
+    /// Fetching users list data to display
     func getUsersListData() {
         //Fetch products list
         viewModel.getUsersListData {
@@ -90,6 +74,22 @@ final class UsersListViewController: UIViewController {
             let errorMessageAlert = UIAlertController(title: "Got error", message: errorString, preferredStyle: .alert)
             errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self?.present(errorMessageAlert, animated: true, completion: nil)
+        }
+    }
+    
+    @objc
+    /// Observer method for User data change
+    /// - Parameter notification: notification
+    private func selectedUserDataDidChange(_ notification: Notification) {
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, UserEntity>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(self.viewModel.userListDataSource ?? [])
+        if #available(iOS 15.0, *) {
+            dataSource.applySnapshotUsingReloadData(snapshot)
+        } else {
+            // Fallback on earlier versions
+            dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
     
@@ -107,6 +107,7 @@ final class UsersListViewController: UIViewController {
                  }
                     switch item.type {
                     case .Note:
+                        ///To show inverted image cell
                         if ((indexPath.row + 1) % 4) == 0 {
                             if let userCell = collectionView.dequeueReusableCell(
                                 withReuseIdentifier: Constants.Identifiers.invertedNoteCollectionViewCell,
@@ -122,6 +123,7 @@ final class UsersListViewController: UIViewController {
                         }
                         
                     case .Normal:
+                        ///To show inverted image cell
                         if ((indexPath.row + 1) % 4) == 0 {
                             if let userCell = collectionView.dequeueReusableCell(
                                 withReuseIdentifier: Constants.Identifiers.invertedCollectionViewCell,
@@ -148,6 +150,27 @@ final class UsersListViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
+    /// Created composite layout to arranged Users cells
+    private func generateCopositeLayout() -> UICollectionViewLayout {
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(((self.view.bounds.width - 40)/2) * 1.50))
+        let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(2/3))
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: fullPhotoItem,
+            count: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
+        return compositionalLayout
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsViewController = segue.destination as? UserDetailsViewController{
             guard let selectedUser = sender as? UserEntity, let userName = selectedUser.username else { return }
@@ -159,6 +182,7 @@ final class UsersListViewController: UIViewController {
 // MARK: - UICollectionViewDelegate methods
 extension UsersListViewController: UICollectionViewDelegate {
     
+    /// Pagination ,ethod to load more data
     func loadMoreData() {
         if !self.isLoading {
             self.isLoading = true

@@ -7,20 +7,21 @@
 
 import Foundation
 
+enum OperationState : Int {
+    case ready
+    case executing
+    case finished
+}
+
+/// Class to make only one operation at a time
 class SequentialOpertion : Operation {
-    
-    private var dataTask : URLSessionDataTask!
-    
-    enum OperationState : Int {
-        case ready
-        case executing
-        case finished
-    }
-    
+        
+    ///Properties
     override var isReady: Bool { return state == .ready }
     override var isExecuting: Bool { return state == .executing }
     override var isFinished: Bool { return state == .finished }
     
+    private var dataTask : URLSessionDataTask!
     private var state : OperationState = .ready {
         willSet {
             self.willChangeValue(forKey: "isExecuting")

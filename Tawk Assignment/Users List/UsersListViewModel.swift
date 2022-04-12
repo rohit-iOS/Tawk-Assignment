@@ -20,6 +20,7 @@ protocol CellViewModelItem {
 /// ViewModel class for Users Listing
 final class UsersListViewModel {
     
+    ///Properties
     var userListDataSource:[UserEntity]?
     private var entityList: [UserEntity]?
 
@@ -57,6 +58,7 @@ extension UsersListViewModel {
             }
         }
         
+        ///Fetching data for next page
         if let entityData = entityList {
             if entityData.count > (pageNumber * Constants.Others.usersCountPerPage) {
                 let startIndex = (pageNumber * Constants.Others.usersCountPerPage)
@@ -66,20 +68,24 @@ extension UsersListViewModel {
             } else {
                 callAPI()
             }
-        } else if (pageNumber > 0)
+        }///Fetching data from server for first time to diplay
+        else if (pageNumber > 0)
         {
             callAPI()
-        } else {
+        }
+        else {
             do {
+                ///Reading users list data from core data
                 entityList = try CoreDataManager.shared.fetchAllEntitiesFor(pageNumber: pageNumber)
                 if let enityData = entityList {
                     self.userListDataSource = Array(enityData[0...(Constants.Others.usersCountPerPage - 1)])
                     success()
                 }
-                
-            } catch UserListError.missingData {
+            }///Data is not present in core data for requested page then requesting to server
+            catch UserListError.missingData {
                 callAPI()
-            } catch {
+            }
+            catch {
                 debugPrint("We got a failure trying to get the data. The error we got was: \(error.localizedDescription)")
                 failure(error.localizedDescription)
                 
@@ -87,6 +93,11 @@ extension UsersListViewModel {
         }
     }
     
+    /// Fetch Users listing data from server
+    /// - Parameters:
+    ///   - usersListurl: usersListurl
+    ///   - success: successCompletionBlock
+    ///   - failure: failureCompletionBlock
     func fetchUsersList(usersListurl: URL,
                         success: @escaping () -> Void,
                         failure: @escaping (String) -> Void) {
@@ -94,11 +105,9 @@ extension UsersListViewModel {
             
             switch result {
             case .success(let usersListDataResponse):
-                
                 Task {
                     try await CoreDataManager.shared.insertUserData(usersListDataResponse)
                 }
-                
                 if  self?.userListDataSource != nil {
                     self?.userListDataSource! += usersListDataResponse
                 }

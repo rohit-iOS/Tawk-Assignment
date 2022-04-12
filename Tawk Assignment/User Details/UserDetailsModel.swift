@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Model calls for user datils
 struct UserDetails: Codable {
     
     var userName: String

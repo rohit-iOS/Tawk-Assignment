@@ -27,7 +27,7 @@ final class UserDetailsViewModel {
         return ""
     }
     
-    func fetchUserNote(success: @escaping (String) -> Void) {
+    private func fetchUserNote(success: @escaping (String) -> Void) {
         CoreDataManager.shared.fetchUserNotes(userName: userDetails!.userName) { [weak self] note in
             self?.userNote = note
             success(note)
@@ -39,7 +39,8 @@ final class UserDetailsViewModel {
     func saveNotes(notes:String,
                    success: @escaping () -> Void,
                    failure: @escaping (String) -> Void) {
-        CoreDataManager.shared.updateUserNotes(note: notes, userName: userDetails!.userName) {
+        CoreDataManager.shared.updateUserNotes(note: notes, userName: userDetails!.userName) { [weak self] in
+            self?.fetchUserNote { _ in }
             success()
         } failure: { errorMessage in
             failure(errorMessage)
@@ -51,6 +52,11 @@ final class UserDetailsViewModel {
 // MARK: - Service call & Parsing
 extension UserDetailsViewModel {
     
+    /// Fetch user details of selected user
+    /// - Parameters:
+    ///   - userName: userName
+    ///   - success: successCompletionBlock
+    ///   - failure: failureCompletionBlock
     func getUserDetailsFor(userName: String,
                            success: @escaping () -> Void,
                            failure: @escaping (String) -> Void) {
