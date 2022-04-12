@@ -174,8 +174,6 @@
 			children = (
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
-				C689D5B4280091B200640A5D /* NetworkManager.swift */,
-				C605B59728061D9500E06DB6 /* SequentialOpertion.swift */,
 				C635171C28058EBA00D5A35C /* ImageFileManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
 				C689D5C02800BE7300640A5D /* Users List */,
@@ -231,10 +229,12 @@
 		C692091B2802C56800191A09 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C689D5BA280098B100640A5D /* AppConstants.swift */,
-				C674154628015C780096C6CE /* Utility.swift */,
-				C69209242803641400191A09 /* BadgeView.swift */,
+				C689D5B4280091B200640A5D /* NetworkManager.swift */,
+				C605B59728061D9500E06DB6 /* SequentialOpertion.swift */,
 				C692092228032ED400191A09 /* NetworkMonitor.swift */,
+				C689D5BA280098B100640A5D /* AppConstants.swift */,
+				C69209242803641400191A09 /* BadgeView.swift */,
+				C674154628015C780096C6CE /* Utility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
