@@ -11,12 +11,33 @@ import Foundation
 final class UserDetailsViewModel {
     
     var userDetails: UserDetails?
+    private var userNote: String?
 
     /// Initialization
     init(model: UserDetails? = nil) {
         if let inputModel = model {
             userDetails = inputModel
         }
+    }
+    
+    func fetchUserNote(success: @escaping (String) -> Void) {
+        CoreDataManager.shared.fetchUserNotes(userName: userDetails!.userName) { [weak self] note in
+            self?.userNote = note
+            success(note)
+        } failure: { errorMessage in
+            debugPrint("We got a failure trying to get the note for user. The error we got was: \(errorMessage)")        }
+
+    }
+    
+    func saveNotes(notes:String,
+                   success: @escaping () -> Void,
+                   failure: @escaping (String) -> Void) {
+        CoreDataManager.shared.updateUserNotes(note: notes, userName: userDetails!.userName) {
+            success()
+        } failure: { errorMessage in
+            failure(errorMessage)
+        }
+
     }
 }
 
@@ -31,13 +52,12 @@ extension UserDetailsViewModel {
             return
         }
         
-        NetworkManager.shared.request(requetparam: nil, fromURL: userDetailsUrl) { (result: Result<UserDetails, Error>) in
-            
+        NetworkManager.shared.request(requetparam: nil, fromURL: userDetailsUrl) { [weak self] (result: Result<UserDetails, Error>) in
             
             switch result {
             case .success(let userDetailsResponse):
                 
-                self.userDetails = userDetailsResponse
+                self?.userDetails = userDetailsResponse
                 success()
                 
             case .failure(let error):

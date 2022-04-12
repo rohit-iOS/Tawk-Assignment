@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C635171D28058EBA00D5A35C /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635171C28058EBA00D5A35C /* ImageFileManager.swift */; };
 		C674154728015C780096C6CE /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674154628015C780096C6CE /* Utility.swift */; };
 		C689D57C28007F9100640A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57B28007F9100640A5D /* AppDelegate.swift */; };
 		C689D57E28007F9100640A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689D57D28007F9100640A5D /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C635171C28058EBA00D5A35C /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		C674154628015C780096C6CE /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C689D57828007F9100640A5D /* Tawk Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tawk Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C689D57B28007F9100640A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C62628C628043ED30013720E /* User Details */ = {
+			isa = PBXGroup;
+			children = (
+				C692091C2802DC6800191A09 /* UserDetailsViewController.swift */,
+				C692091E2803019C00191A09 /* UserDetailsViewModel.swift */,
+				C6920920280301AB00191A09 /* UserDetailsModel.swift */,
+			);
+			path = "User Details";
+			sourceTree = "<group>";
+		};
 		C689D56F28007F9100640A5D = {
 			isa = PBXGroup;
 			children = (
@@ -134,11 +146,10 @@
 				C689D57B28007F9100640A5D /* AppDelegate.swift */,
 				C689D57D28007F9100640A5D /* SceneDelegate.swift */,
 				C689D5B4280091B200640A5D /* NetworkManager.swift */,
+				C635171C28058EBA00D5A35C /* ImageFileManager.swift */,
 				C689D58128007F9100640A5D /* Main.storyboard */,
-				C692091C2802DC6800191A09 /* UserDetailsViewController.swift */,
-				C692091E2803019C00191A09 /* UserDetailsViewModel.swift */,
-				C6920920280301AB00191A09 /* UserDetailsModel.swift */,
 				C689D5C02800BE7300640A5D /* Users List */,
+				C62628C628043ED30013720E /* User Details */,
 				C692091B2802C56800191A09 /* Helpers */,
 				C69209162802C3F600191A09 /* Core Data */,
 				C689D58728007F9200640A5D /* Assets.xcassets */,
@@ -342,6 +353,7 @@
 				C6920921280301AB00191A09 /* UserDetailsModel.swift in Sources */,
 				C692092328032ED400191A09 /* NetworkMonitor.swift in Sources */,
 				C6F0ABB328016EA900EBD48A /* CoreDataManager.swift in Sources */,
+				C635171D28058EBA00D5A35C /* ImageFileManager.swift in Sources */,
 				C689D5B92800979500640A5D /* UsersListViewController.swift in Sources */,
 				C6F0ABB52801707C00EBD48A /* UserListError.swift in Sources */,
 				C689D5BF280098CD00640A5D /* UsersListViewModel.swift in Sources */,

@@ -19,6 +19,12 @@ extension UIImageView {
             return
         }
         
+        ///Check image available on disk and return it
+        if let image = ImageFileManager.shared.getImage(imageName: urlString) {
+            self.image = image
+            return
+        }
+                
         guard let url = URL(string: urlString) else {
             return
         }
@@ -30,6 +36,7 @@ extension UIImageView {
                         imageCashe.setObject(image, forKey: urlString as NSString)
                         self?.image = image
                     }
+                    ImageFileManager.shared.saveImageDocumentDirectory(imageName: urlString, image: image)
                 }
             }
         }
@@ -57,5 +64,13 @@ extension UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         let compositionalLayout = UICollectionViewCompositionalLayout(section: section)
         return compositionalLayout
+    }
+}
+
+extension String {
+    
+    func isValidString() -> Bool {
+        let trimmedString = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return !trimmedString.isEmpty
     }
 }

@@ -23,11 +23,14 @@ struct Constants {
         static let main = "Main"
         static let userCollactionViewCell = "UserCollectionViewCell"
         static let userDetailsViewSegue = "userDetailsViewSegue"
-
     }
     
     struct Others {
         static let usersCountPerPage = 30
     }
-    
+}
+
+extension NSNotification.Name {
+    /// - Tag: NSNotificationName
+    static let selectedUserDataDidChange = Notification.Name("selectedUserDataDidChange")
 }

@@ -42,30 +42,31 @@ final class UserDetailsViewController: UIViewController {
     func fetchUserDetails() {
         viewModel.getUserDetailsFor(userName: userName) { [weak self] in
             self?.updateUI()
-        } failure: { errorString in
+        } failure: { [weak self] errorString in
             let errorMessageAlert = UIAlertController(title: "Got error", message: errorString, preferredStyle: .alert)
             errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(errorMessageAlert, animated: true, completion: nil)
+            self?.present(errorMessageAlert, animated: true, completion: nil)
         }
     }
     
     func updateUI() {
         guard let userDetails = viewModel.userDetails else { return }
+        self.title = userDetails.userName
         profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl)
         followingCountLabel.text = "Following: \(userDetails.following)"
         followersCountLabel.text = "Followers: \(userDetails.followers)"
         repositoryCountLabel.text = "Reps: \(userDetails.following)"
         gistsCountLabel.text = "Gists: \(userDetails.following)"
         
-        if let name = userDetails.name, !name.isEmpty {
+        if let name = userDetails.name, !name.isValidString() {
             addUserInfoLabel(userInfo:"Name: \(name)")
         }
         
-        if let company = userDetails.company, !company.isEmpty {
+        if let company = userDetails.company, !company.isValidString() {
             addUserInfoLabel(userInfo: "Company: \(company)")
         }
         
-        if let blog = userDetails.blog, !blog.isEmpty {
+        if let blog = userDetails.blog, !blog.isValidString() {
             addUserInfoLabel(userInfo: "Blog: \(blog)")
         }
         
@@ -77,10 +78,23 @@ final class UserDetailsViewController: UIViewController {
             userDetailsVerticalStackViewBackgroudView.isHidden = false
             userDetailsVerticalStackView.addArrangedSubview(userInfoLabel)
         }
+        
+        viewModel.fetchUserNote { [weak self] note in
+            self?.notesTextView.text = note
+        }
     }
     
     @IBAction func saveNotesButtonAction(_ sender: UIButton) {
         
+        if notesTextView.text.isValidString() {
+            viewModel.saveNotes(notes: notesTextView.text) {
+                NotificationCenter.default.post(name: .selectedUserDataDidChange, object: nil)
+            } failure: { [weak self] errorMessage in
+                let errorMessageAlert = UIAlertController(title: "Got error", message: errorMessage, preferredStyle: .alert)
+                errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self?.present(errorMessageAlert, animated: true, completion: nil)
+            }
+        }
     }
     
 }
@@ -88,7 +102,7 @@ final class UserDetailsViewController: UIViewController {
 extension UserDetailsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        saveButton.isEnabled = !(textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        saveButton.isEnabled = textView.text.isValidString()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -108,9 +122,10 @@ extension UserDetailsViewController: UITextViewDelegate {
         }
         let movementDuration:TimeInterval = 0.3
         let movement:CGFloat = ( up ? -moveValue : moveValue)
-        UIView.animate(withDuration: movementDuration, delay: 0, options: UIView.AnimationOptions.allowUserInteraction) {
-            self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
-        } completion: { done in }
+        UIView.animate(withDuration: movementDuration, delay: 0, options: UIView.AnimationOptions.allowUserInteraction) { [weak self] in
+            self?.view.frame = (self?.view.frame.offsetBy(dx: 0,  dy: movement))!
+        } completion: { _ in
+        }
     }
     
     

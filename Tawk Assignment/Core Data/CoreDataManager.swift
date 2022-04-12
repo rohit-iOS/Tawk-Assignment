@@ -14,6 +14,7 @@ class CoreDataManager {
     
     /// A shared CoreDataManager for use within the main app bundle.
     static let shared = CoreDataManager()
+    private var taskReadContext: NSManagedObjectContext?
     
     private let inMemory: Bool
     private var notificationToken: NSObjectProtocol?
@@ -104,21 +105,71 @@ class CoreDataManager {
         
     }
     
+    func fetchUserNotes(userName: String,
+                        success: @escaping (String) -> Void,
+                         failure: @escaping (String) -> Void) {
+        
+        let fetchRequest = UserEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "username = %@", userName)
+        // Get a reference to a NSManagedObjectContext
+        let context = container.viewContext
+
+        do {
+            let fetchResults = try context.fetch(fetchRequest)
+            if fetchResults.count != 0{
+
+                let userObject = fetchResults.first
+                success(userObject?.value(forKey: "note") as! String)
+            }
+                
+        } catch {
+            debugPrint("We got a failure while saving note. The error we got was: \(error.localizedDescription)")
+            failure(error.localizedDescription)
+        }
+    }
+
+    func updateUserNotes(note: String,
+                         userName: String,
+                         success: @escaping () -> Void,
+                         failure: @escaping (String) -> Void) {
+        
+        let fetchRequest = UserEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "username = %@", userName)
+        // Get a reference to a NSManagedObjectContext
+        let context = container.viewContext
+
+        do {
+            let fetchResults = try context.fetch(fetchRequest)
+            if fetchResults.count != 0{
+
+                let userObject = fetchResults.first
+                userObject?.setValue(note, forKey: "note")
+
+                try context.save()
+                success()
+            }
+                
+        } catch {
+            debugPrint("We got a failure while saving note. The error we got was: \(error.localizedDescription)")
+            failure(error.localizedDescription)
+        }
+    }
+    
     /// Uses `NSBatchInsertRequest` (BIR) to import a JSON dictionary into the Core Data store on a private queue.
     private func importUserList(from userList: [UserEntity]) async throws {
         guard !userList.isEmpty else { return }
         
-        let taskContext = newTaskContext()
+        let taskWriteContext = newTaskContext()
         // Add name and author to identify source of persistent history changes.
-        taskContext.name = "importContext"
-        taskContext.transactionAuthor = "importUsers"
+        taskWriteContext.name = "importContext"
+        taskWriteContext.transactionAuthor = "importUsers"
         
-        taskContext.perform({
+        taskWriteContext.perform({
             do {
                 // Execute the batch insert.
                 /// - Tag: batchInsertRequest
                 let batchInsertRequest = self.newBatchInsertRequest(with: userList)
-                if let fetchResult = try? taskContext.execute(batchInsertRequest),
+                if let fetchResult = try? taskWriteContext.execute(batchInsertRequest),
                    let batchInsertResult = fetchResult as? NSBatchInsertResult,
                    let success = batchInsertResult.result as? Bool, success {
                     return
@@ -182,16 +233,18 @@ class CoreDataManager {
     }
     
     private func fetchPersistentHistoryTransactionsAndChanges() {
-        let taskContext = newTaskContext()
-        taskContext.name = "persistentHistoryContext"
+        if taskReadContext == nil {
+            taskReadContext = newTaskContext()
+        }
+        taskReadContext?.name = "persistentHistoryContext"
         print("Start fetching persistent history changes from the store...")
         
-        taskContext.perform({
+        taskReadContext?.perform({
             do {
                 // Execute the persistent history change since the last transaction.
                 /// - Tag: fetchHistory
                 let changeRequest = NSPersistentHistoryChangeRequest.fetchHistory(after: self.lastToken)
-                let historyResult = try? taskContext.execute(changeRequest) as? NSPersistentHistoryResult
+                let historyResult = try? self.taskReadContext?.execute(changeRequest) as? NSPersistentHistoryResult
                 if let history = historyResult?.result as? [NSPersistentHistoryTransaction],
                    !history.isEmpty {
                     self.mergePersistentHistoryChanges(from: history)
@@ -216,4 +269,6 @@ class CoreDataManager {
             }
         }
     }
+    
+    
 }

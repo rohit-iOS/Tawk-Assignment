@@ -23,7 +23,12 @@ final class UserCollectionViewCell: UICollectionViewCell {
     /// - Parameter viewModel: viewModel
     func configureUserCell(viewModel: UserEntity) {
         usernameLabel.text = viewModel.username
-        noteImageView.isHidden = viewModel.note?.isEmpty ?? true
+        if let note = viewModel.note {
+            noteImageView.isHidden = !note.isValidString()
+        } else {
+            noteImageView.isHidden = true
+        }
+        profilePictureImageView.image = UIImage.init(systemName: "photo")
         profilePictureImageView.loadImageFrom(urlString: viewModel.profilePictureUrl ?? "")
     }
     

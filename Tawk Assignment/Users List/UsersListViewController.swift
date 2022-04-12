@@ -37,6 +37,26 @@ final class UsersListViewController: UIViewController {
 //        NetworkMonitor().startMonitoring { status in
 //            print(status)
 //        }
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(selectedUserDataDidChange(_:)),
+            name: .selectedUserDataDidChange,
+            object: nil)
+    }
+    
+    @objc
+    private func selectedUserDataDidChange(_ notification: Notification) {
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, UserEntity>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(self.viewModel.userListDataSource ?? [])
+        if #available(iOS 15.0, *) {
+            dataSource.applySnapshotUsingReloadData(snapshot)
+        } else {
+            // Fallback on earlier versions
+            dataSource.apply(snapshot, animatingDifferences: false)
+        }
     }
     
     /// Method to setup CollectionView
@@ -60,10 +80,10 @@ final class UsersListViewController: UIViewController {
                 self?.applySnapshot()
                 self?.isLoading = false
             }
-        } failure: { errorString in
+        } failure: { [weak self] errorString in
             let errorMessageAlert = UIAlertController(title: "Got error", message: errorString, preferredStyle: .alert)
             errorMessageAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(errorMessageAlert, animated: true, completion: nil)
+            self?.present(errorMessageAlert, animated: true, completion: nil)
         }
     }
     
