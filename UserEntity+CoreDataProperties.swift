@@ -2,7 +2,7 @@
 //  UserEntity+CoreDataProperties.swift
 //  Tawk Assignment
 //
-//  Created by Rohit Karyappa on 10/04/2022.
+//  Created by Rohit Karyappa on 14/04/2022.
 //
 //
 

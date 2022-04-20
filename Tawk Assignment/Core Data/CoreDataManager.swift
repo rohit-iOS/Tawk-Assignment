@@ -270,5 +270,48 @@ class CoreDataManager {
         }
     }
     
+    // MARK: User Details
     
+    func insertUserDetails(userName: String,
+                         success: @escaping () -> Void,
+                         failure: @escaping (String) -> Void) {
+        guard !userName.isEmpty else { return }
+        
+        let taskWriteContext = newTaskContext()
+        // Add name and author to identify source of persistent history changes.
+        taskWriteContext.name = "importContext"
+        taskWriteContext.transactionAuthor = "importUserDetails"
+        
+        taskWriteContext.perform({
+            do {
+                // Execute the batch insert.
+                let entity = NSEntityDescription.entity(forEntityName: "UsersDetailEntity", in: taskWriteContext)
+                let record = NSManagedObject(entity: entity, insertInto: taskWriteContext)
+                record.setValue(<#T##Any?#>, forKey: <#T##String#>)
+
+
+            }
+        })
+        print("Successfully inserted data.")
+    }
+    
+    func fetchUserDetailsEntity(userName: String) throws -> UsersDetailEntity {
+        let fetchRequest = UsersDetailEntity.fetchRequest()
+        
+        // Get a reference to a NSManagedObjectContext
+        let context = container.viewContext
+
+        // Fetch all objects of one Entity type
+        let objects = try context.fetch(fetchRequest)
+        
+        if objects.count > 0 {
+            if let userDetails = objects.first {
+                return userDetails
+            } else {
+                throw UserListError.missingData
+            }
+        } else {
+            throw UserListError.missingData
+        }
+    }
 }

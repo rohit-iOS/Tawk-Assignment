@@ -45,11 +45,13 @@ final class UserDetailsViewController: UIViewController {
     /// Display intial user details
     private func updateUI() {
         updateBackButtonAppearance()
-        guard let userDetails = viewModel.userDetails else { return }
         
         func setUpData(){
-            self.title = userDetails.userName
-            profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl) {}
+            
+            guard let userDetails = viewModel.userDetails else { return }
+
+            self.title = userDetails.username
+            profilePictureImageView.loadImageFrom(urlString: userDetails.profilePictureUrl ?? "") {}
             followingCountLabel.text = "Following: \(userDetails.following)"
             followersCountLabel.text = "Followers: \(userDetails.followers)"
             repositoryCountLabel.text = "Reps: \(userDetails.following)"

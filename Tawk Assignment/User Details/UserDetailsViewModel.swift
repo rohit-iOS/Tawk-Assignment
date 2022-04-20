@@ -10,11 +10,11 @@ import Foundation
 /// ViewModel class for Users Listing
 final class UserDetailsViewModel {
     
-    var userDetails: UserDetails?
+    var userDetails: UsersDetailEntity?
     private var userNote: String?
 
     /// Initialization
-    init(model: UserDetails? = nil) {
+    init(model: UsersDetailEntity? = nil) {
         if let inputModel = model {
             userDetails = inputModel
         }
@@ -28,7 +28,9 @@ final class UserDetailsViewModel {
     }
     
     private func fetchUserNote(success: @escaping (String) -> Void) {
-        CoreDataManager.shared.fetchUserNotes(userName: userDetails!.userName) { [weak self] note in
+        
+        guard let username = userDetails?.username else { return }
+        CoreDataManager.shared.fetchUserNotes(userName: username) { [weak self] note in
             self?.userNote = note
             success(note)
         } failure: { errorMessage in
@@ -39,7 +41,9 @@ final class UserDetailsViewModel {
     func saveNotes(notes:String,
                    success: @escaping () -> Void,
                    failure: @escaping (String) -> Void) {
-        CoreDataManager.shared.updateUserNotes(note: notes, userName: userDetails!.userName) { [weak self] in
+        
+        guard let username = userDetails?.username else { return }
+        CoreDataManager.shared.updateUserNotes(note: notes, userName: username) { [weak self] in
             self?.fetchUserNote { _ in }
             success()
         } failure: { errorMessage in
@@ -52,11 +56,7 @@ final class UserDetailsViewModel {
 // MARK: - Service call & Parsing
 extension UserDetailsViewModel {
     
-    /// Fetch user details of selected user
-    /// - Parameters:
-    ///   - userName: userName
-    ///   - success: successCompletionBlock
-    ///   - failure: failureCompletionBlock
+    
     func getUserDetailsFor(userName: String,
                            success: @escaping () -> Void,
                            failure: @escaping (String) -> Void) {
@@ -65,7 +65,43 @@ extension UserDetailsViewModel {
             return
         }
         
-        NetworkManager.shared.request(requetparam: nil, fromURL: userDetailsUrl) { [weak self] (result: Result<UserDetails, Error>) in
+        func callAPI() {
+            fetchUserDetailsFromServerFor(userName: userName) {
+                success()
+            } failure: { errorMessage in
+                failure(errorMessage)
+            }
+        }
+        
+        do {
+            ///Reading users list data from core data
+            userDetails = try CoreDataManager.shared.fetchAllEntitiesFor(pageNumber: pageNumber)
+            if let enityData = entityList {
+                self.userListDataSource = Array(enityData[0...(Constants.Others.usersCountPerPage - 1)])
+                success()
+            }
+        }///Data is not present in core data for requested page then requesting to server
+        catch UserListError.missingData {
+            callAPI()
+        }
+        catch {
+            debugPrint("We got a failure trying to get the data. The error we got was: \(error.localizedDescription)")
+            failure(error.localizedDescription)
+            
+        }
+    }
+    
+    /// Fetch user details of selected user
+    /// - Parameters:
+    ///   - userName: userName
+    ///   - success: successCompletionBlock
+    ///   - failure: failureCompletionBlock
+    func fetchUserDetailsFromServerFor(userName: String,
+                           success: @escaping () -> Void,
+                           failure: @escaping (String) -> Void) {
+        
+        
+        NetworkManager.shared.request(requetparam: nil, fromURL: userDetailsUrl) { [weak self] (result: Result<UsersDetailEntity, Error>) in
             
             switch result {
             case .success(let userDetailsResponse):

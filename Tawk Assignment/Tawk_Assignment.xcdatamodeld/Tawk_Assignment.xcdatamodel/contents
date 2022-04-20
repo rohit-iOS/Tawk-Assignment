@@ -12,7 +12,25 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="UsersDetailEntity" representedClassName=".UsersDetailEntity" syncable="YES">
+        <attribute name="blog" optional="YES" attributeType="String"/>
+        <attribute name="company" optional="YES" attributeType="String"/>
+        <attribute name="followers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="following" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="profilePictureUrl" optional="YES" attributeType="String"/>
+        <attribute name="public_gists" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="public_repos" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <elements>
         <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="UsersDetailEntity" positionX="-63" positionY="18" width="128" height="179"/>
     </elements>
 </model>
